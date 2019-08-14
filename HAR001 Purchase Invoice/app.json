@@ -1,0 +1,26 @@
+{
+  "id": "7082871a-5e82-4e27-a3b2-e136c13793fb",
+  "name": "HAR001 Purchase Invoice",
+  "publisher": "Silverware, Inc.",
+  "version": "1.1.0.0",
+  "brief": "",
+  "description": "Purchase Invoice with receipt no. and date",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "C:\\Repos\\Harkins\\Logo.png",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "14.0.0.0",
+  "application": "14.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://HAR001PurchaseInvoice.com/help/",
+  "showMyCode": true,
+  "runtime": "3.0"
+}

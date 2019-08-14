@@ -1,0 +1,9 @@
+Type,Number,Name,Extends
+Table,,,
+TableExtension,50100,G/L Integration Setup,General Ledger Setup
+Page,50100,General Ledger Export,
+PageExtension,50100,G/L Integration Setup,General Ledger Setup
+PageCustomization,,,
+Codeunit,,,
+Report,50100,Harkins Purchase Invoice,
+XMLPort,,,

@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "Your own server",
+            "server": "http://bc140",
+            "serverInstance": "nav",
+            "authentication": "Windows",
+            "startupObjectId": 138,
+            "startupObjectType": "Page",
+            "breakOnError": true,
+            "launchBrowser": true
+        }
+    ]
+}

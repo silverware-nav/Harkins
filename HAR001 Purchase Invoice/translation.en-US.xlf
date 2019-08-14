@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="Please update this value">
+    <body>
+      <group id="body">
+        <trans-unit id="Report 1364588162 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Business Central Purchase Invoice</source>
+          <target>Business Central Purchase Invoice</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target>Options</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - Control 4198158427 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of Copies</source>
+          <target>Number of Copies</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - Control NumberOfCopies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - Control 4198158427 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of copies of each document (in addition to the original) that you want to print.</source>
+          <target>Specifies the number of copies of each document (in addition to the original) that you want to print.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - Control NumberOfCopies - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - Control 2834693588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Company Address</source>
+          <target>Print Company Address</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - Control PrintCompanyAddress - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - Control 2834693588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if your company address is printed at the top of the sheet, because you do not use pre-printed paper. Leave this check box blank to omit your company's address.</source>
+          <target>Specifies if your company address is printed at the top of the sheet, because you do not use pre-printed paper. Leave this check box blank to omit your company's address.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - Control PrintCompanyAddress - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - Control 816368762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Log Interaction</source>
+          <target>Log Interaction</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - Control LogInteraction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - Control 816368762 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to record the related interactions with the involved contact person in the Interaction Log Entry table.</source>
+          <target>Specifies if you want to record the related interactions with the involved contact person in the Interaction Log Entry table.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - Control LogInteraction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>COPY</source>
+          <target>COPY</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Tax Breakdown:</source>
+          <target>Sales Tax Breakdown:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Other Taxes</source>
+          <target>Other Taxes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType Text004</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Sales Tax:</source>
+          <target>Total Sales Tax:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType Text005</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Breakdown:</source>
+          <target>Tax Breakdown:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType Text006</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Tax:</source>
+          <target>Total Tax:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType Text007</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax:</source>
+          <target>Tax:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType Text008</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3921243024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VOID INVOICE</source>
+          <target>VOID INVOICE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType Text009</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 2566983481" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To:</source>
+          <target>To:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType ToCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 851017600" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receive By</source>
+          <target>Receive By</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType ReceiveByCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 361562039" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor ID</source>
+          <target>Vendor ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType VendorIDCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 75049271" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirm To</source>
+          <target>Confirm To</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType ConfirmToCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1930263167" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Buyer</source>
+          <target>Buyer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType BuyerCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 229963946" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship</source>
+          <target>Ship</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType ShipCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1209767978" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To:</source>
+          <target>To:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType ToCaption1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3688503099" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Business Central Purchase Invoice</source>
+          <target>Business Central Purchase Invoice</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType PurchInvCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3557100545" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Invoice Number:</source>
+          <target>Purchase Invoice Number:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType PurchInvNumCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3148397847" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Invoice Date:</source>
+          <target>Purchase Invoice Date:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType PurchInvDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 650077689" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page:</source>
+          <target>Page:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType PageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 2279354260" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship Via</source>
+          <target>Ship Via</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType ShipViaCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3180208483" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terms</source>
+          <target>Terms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType TermsCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1485810516" size-unit="char" translate="yes" xml:space="preserve">
+          <source>P.O. Number</source>
+          <target>P.O. Number</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType PONumberCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1038176176" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pay</source>
+          <target>Pay</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType PayCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 22553785" size-unit="char" translate="yes" xml:space="preserve">
+          <source>P.O. Date</source>
+          <target>P.O. Date</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType PODateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1729335317" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Ident. Type</source>
+          <target>Tax Ident. Type</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType TaxIdentTypeCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 581024604" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target>Item No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType ItemNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1065670270" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit</source>
+          <target>Unit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType UnitCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 817831222" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target>Description</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType DescriptionCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3246368361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target>Quantity</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType QuantityCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3659909257" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <target>Unit Price</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType UnitPriceCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1349122805" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Price</source>
+          <target>Total Price</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType TotalPriceCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 3126303398" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subtotal:</source>
+          <target>Subtotal:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType SubtotalCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1170285572" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Discount:</source>
+          <target>Invoice Discount:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType InvDiscCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1364588162 - NamedType 1618327720" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1:</source>
+          <target>Total %1:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Harkins Purchase Invoice - NamedType TotalCaptionTxt</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,10 @@
+C:\Apps\BCDownload\BCDownload\bin\Release\BCDownload.exe.config
+C:\Apps\BCDownload\BCDownload\bin\Release\BCDownload.exe
+C:\Apps\BCDownload\BCDownload\bin\Release\BCDownload.pdb
+C:\Apps\BCDownload\BCDownload\bin\Release\Newtonsoft.Json.dll
+C:\Apps\BCDownload\BCDownload\bin\Release\Newtonsoft.Json.xml
+C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.csprojAssemblyReference.cache
+C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.csproj.CoreCompileInputs.cache
+C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.csproj.CopyComplete
+C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.exe
+C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.pdb
