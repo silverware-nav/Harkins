@@ -8,7 +8,7 @@ codeunit 50100 "SWC-HAR003Send Invoice"
     [EventSubscriber(ObjectType::Codeunit, CODEUNIT::"Purch.-Post", 'OnAfterFinalizePosting', '', false, false)]
     local procedure OnAfterSalesPost(var PurchInvHeader: Record "Purch. Inv. Header"; PreviewMode: Boolean)
     begin
-        if not PreviewMode then
+        if not PreviewMode and (PurchInvHeader."No." <> '') then
             SendInvoice(PurchInvHeader);
     end;
 

@@ -55,6 +55,7 @@ namespace BCDownload
             StreamWriter fs = new StreamWriter(FullDestinationFile, false, Encoding.ASCII);
 
             // Read the data
+            string Header = "\"Date\",\"Reference\",\"Account\",\"Debit\",\"Credit\"";
             bool MoreData = true;
             while (MoreData)
             {
@@ -81,6 +82,12 @@ namespace BCDownload
                     JArray jArray = JArray.Parse(jData["value"].ToString());
                     if (jArray.Count > 0)
                     {
+                        if (Header.Length > 0)
+                        {
+                            fs.Write(Header);
+                            Header = "";
+                        }
+
                         MoreData = true;
                         foreach (JObject jElement in jArray)
                         {
@@ -88,11 +95,10 @@ namespace BCDownload
                             if (EntryNo > LastEntry)
                                 LastEntry = EntryNo;
 
-                            fs.WriteLine(String.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",{4:########0.00},{5:########0.00}",
+                            fs.WriteLine(String.Format("\"{0}\",\"{1}\",\"{2}\",{3:########0.00},{4:########0.00}",
                                 jElement.GetValue("Posting_Date"),
                                 jElement.GetValue("Document_No"),
                                 jElement.GetValue("G_L_Account_No"),
-                                jElement.GetValue("Description"),
                                 jElement.GetValue("Debit_Amount"),
                                 jElement.GetValue("Credit_Amount")
                                 ));

@@ -8,3 +8,13 @@ C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.csproj.CoreCompileInputs.ca
 C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.csproj.CopyComplete
 C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.exe
 C:\Apps\BCDownload\BCDownload\obj\Release\BCDownload.pdb
+C:\Repos\Harkins\BCDownload\BCDownload\bin\Release\BCDownload.exe.config
+C:\Repos\Harkins\BCDownload\BCDownload\bin\Release\BCDownload.exe
+C:\Repos\Harkins\BCDownload\BCDownload\bin\Release\BCDownload.pdb
+C:\Repos\Harkins\BCDownload\BCDownload\bin\Release\Newtonsoft.Json.dll
+C:\Repos\Harkins\BCDownload\BCDownload\bin\Release\Newtonsoft.Json.xml
+C:\Repos\Harkins\BCDownload\BCDownload\obj\Release\BCDownload.csprojAssemblyReference.cache
+C:\Repos\Harkins\BCDownload\BCDownload\obj\Release\BCDownload.csproj.CoreCompileInputs.cache
+C:\Repos\Harkins\BCDownload\BCDownload\obj\Release\BCDownload.csproj.CopyComplete
+C:\Repos\Harkins\BCDownload\BCDownload\obj\Release\BCDownload.exe
+C:\Repos\Harkins\BCDownload\BCDownload\obj\Release\BCDownload.pdb
