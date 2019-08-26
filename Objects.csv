@@ -6,6 +6,7 @@ Page,50100,General Ledger Export,
 PageExtension,50100,G/L Integration Setup,General Ledger Setup
 PageExtension,50101,SWC-HAR003PurchasesPayables,Purchases & Payables Setup
 PageExtension,50102,SWC-HAR003PostedPurchaseInv,Posted Purchase Invoice
+PageExtension,50103,SWC-HAR003PostedCreditMemo,Posted Credit Memo
 PageCustomization,,,
 Codeunit,,,
 Report,50100,Harkins Purchase Invoice,
