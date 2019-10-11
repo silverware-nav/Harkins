@@ -26,7 +26,7 @@ namespace BCDownload.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://api.businesscentral.dynamics.com/v1.0/61f26070-9979-4d9e-8d68-f47448cf48a" +
-            "8/ODataV4/Company(\'CRONUS%20USA%2C%20Inc.\')/General_Ledger_Entries")]
+            "8/ODataV4/Company(\'Harkins\')/General_Ledger_Export")]
         public string BCURL {
             get {
                 return ((string)(this["BCURL"]));
@@ -75,6 +75,15 @@ namespace BCDownload.Properties {
         public string ArchiveFolder {
             get {
                 return ((string)(this["ArchiveFolder"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Document_No ne \'PPC*\' and Document_No ne \'PPI*\'")]
+        public string PageFilter {
+            get {
+                return ((string)(this["PageFilter"]));
             }
         }
     }

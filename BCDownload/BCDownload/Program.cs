@@ -34,6 +34,7 @@ namespace BCDownload
             string DestinationFolder = Properties.Settings.Default.DestinationFolder;
             string DestinationFile = Properties.Settings.Default.DestinationFile;
             string ArchiveFolder = Properties.Settings.Default.ArchiveFolder;
+            string AdditionalFilter = Properties.Settings.Default.PageFilter;
 
             // First, move the current file if one exists
             string FullDestinationFile = Path.Combine(DestinationFolder, DestinationFile);
@@ -63,7 +64,10 @@ namespace BCDownload
 
                 try
                 {
-                    Uri uri = new Uri(String.Format("{0}?$filter=Entry_No%20gt%20{1}", EndPoint, LastEntry));
+                    string urlString = String.Format("{0}?$filter=Entry_No%20gt%20{1}", EndPoint, LastEntry);
+                    if (AdditionalFilter.Length > 0)
+                        urlString = string.Format("{0}%20and%20{1}", urlString, System.Web.HttpUtility.UrlPathEncode(AdditionalFilter));
+                    Uri uri = new Uri(urlString);
                     HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
                     request.Method = "GET";
                     string Credentials = Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes(String.Format("{0}:{1}", UserName, Password)));
@@ -84,7 +88,7 @@ namespace BCDownload
                     {
                         if (Header.Length > 0)
                         {
-                            fs.Write(Header);
+                            fs.WriteLine(Header);
                             Header = "";
                         }
 

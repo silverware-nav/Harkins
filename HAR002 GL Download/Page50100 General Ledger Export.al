@@ -50,8 +50,12 @@ page 50100 "General Ledger Export"
         GeneralLedgerSetup: Record "General Ledger Setup";
     begin
         GeneralLedgerSetup.Get();
-        if GeneralLedgerSetup."Integration Filter Preview" <> '' then
+        if GeneralLedgerSetup."Integration Filter Preview" <> '' then begin
+            FilterGroup(3);
             SetView(GeneralLedgerSetup.GetIntegrationFilter());
+            FilterGroup(0);
+        end;
+
     end;
 
 

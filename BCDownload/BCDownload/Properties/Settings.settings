@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="BCURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://api.businesscentral.dynamics.com/v1.0/61f26070-9979-4d9e-8d68-f47448cf48a8/ODataV4/Company('CRONUS%20USA%2C%20Inc.')/General_Ledger_Entries</Value>
+      <Value Profile="(Default)">https://api.businesscentral.dynamics.com/v1.0/61f26070-9979-4d9e-8d68-f47448cf48a8/ODataV4/Company('Harkins')/General_Ledger_Export</Value>
     </Setting>
     <Setting Name="UserName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">KATHYCHANG</Value>
@@ -19,6 +19,9 @@
     </Setting>
     <Setting Name="ArchiveFolder" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\TEMP\Archive</Value>
+    </Setting>
+    <Setting Name="PageFilter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Document_No ne 'PPC*' and Document_No ne 'PPI*'</Value>
     </Setting>
   </Settings>
 </SettingsFile>
