@@ -2,7 +2,7 @@
   "id": "c86d6572-6d00-4b77-8fa9-c78aeaffc9ff",
   "name": "HAR003 Auto-Send Purchase Invoices",
   "publisher": "Silverware, Inc.",
-  "version": "1.0.0.4",
+  "version": "1.0.2.1",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -10,10 +10,22 @@
   "help": "",
   "url": "",
   "logo": "C:\\Repos\\Harkins\\Logo.png",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "appId": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
+      "publisher": "Microsoft",
+      "name": "System Application",
+      "version": "1.0.0.0"
+    },
+    {
+      "appId": "437dbf0e-84ff-417a-965d-ed2bb9650972",
+      "publisher": "Microsoft",
+      "name": "Base Application",
+      "version": "15.0.0.0"
+    }
+  ],
   "screenshots": [],
-  "platform": "14.0.0.0",
-  "application": "14.0.0.0",
+  "platform": "15.0.0.0",
   "idRanges": [
     {
       "from": 50100,
@@ -22,5 +34,5 @@
   ],
   "contextSensitiveHelpUrl": "https://HAR003Auto-SendPurchaseInvoices.com/help/",
   "showMyCode": true,
-  "runtime": "3.2"
+  "runtime": "4.0"
 }

@@ -5,13 +5,13 @@
             "type": "al",
             "request": "launch",
             "name": "Your own server",
-            "server": "http://bc140",
-            "serverInstance": "nav",
+            "server": "http://bc150",
+            "serverInstance": "BC",
             "authentication": "Windows",
             "startupObjectId": 138,
             "startupObjectType": "Page",
             "breakOnError": true,
-            "launchBrowser": true
+            "launchBrowser": false
         }
     ]
 }

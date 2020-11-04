@@ -2,7 +2,7 @@
   "id": "7082871a-5e82-4e27-a3b2-e136c13793fb",
   "name": "HAR001 Purchase Invoice",
   "publisher": "Silverware, Inc.",
-  "version": "1.1.0.0",
+  "version": "1.2.0.2",
   "brief": "",
   "description": "Purchase Invoice with receipt no. and date",
   "privacyStatement": "",
@@ -10,10 +10,22 @@
   "help": "",
   "url": "",
   "logo": "C:\\Repos\\Harkins\\Logo.png",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "appId": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
+      "publisher": "Microsoft",
+      "name": "System Application",
+      "version": "1.0.0.0"
+    },
+    {
+      "appId": "437dbf0e-84ff-417a-965d-ed2bb9650972",
+      "publisher": "Microsoft",
+      "name": "Base Application",
+      "version": "15.0.0.0"
+    }
+  ],
   "screenshots": [],
-  "platform": "14.0.0.0",
-  "application": "14.0.0.0",
+  "platform": "15.0.0.0",
   "idRanges": [
     {
       "from": 50100,
@@ -22,5 +34,5 @@
   ],
   "contextSensitiveHelpUrl": "https://HAR001PurchaseInvoice.com/help/",
   "showMyCode": true,
-  "runtime": "3.0"
+  "runtime": "4.0"
 }

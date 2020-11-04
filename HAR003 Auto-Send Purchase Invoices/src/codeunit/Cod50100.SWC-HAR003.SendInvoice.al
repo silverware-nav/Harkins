@@ -23,11 +23,12 @@ codeunit 50100 "SWC-HAR003Send Invoice"
         PurchasePayablesSetup: Record "Purchases & Payables Setup";
         SMTPSetup: Record "SMTP Mail Setup";
         ReportSelections: Record "Report Selections";
-        TempBlob: Record TempBlob temporary;
         PurchInvHeaderRef: RecordRef;
         SMTPMail: Codeunit "SMTP Mail";
+        BlobStorage: Codeunit "Temp Blob";
         EmailOutStream: OutStream;
         EmailInStream: InStream;
+        Recipients: List of [Text];
         BodyText: Text;
     begin
         PurchasePayablesSetup.Get();
@@ -36,15 +37,16 @@ codeunit 50100 "SWC-HAR003Send Invoice"
             SMTPSetup.Get();
             PurchasePayablesSetup.TestField("Invoice Email Recipients");
 
-            TempBlob.Blob.CreateOutStream(EmailOutStream, TextEncoding::UTF8);
-            TempBlob.Blob.CreateInStream(EmailInStream, TextEncoding::UTF8);
+            BlobStorage.CreateOutStream(EmailOutStream);
+            BlobStorage.CreateInStream(EmailInStream);
 
             PurchInvHeaderRef.GetTable(PurchInvHeader);
             PurchInvHeaderRef.SetRecFilter();
             Report.SaveAs(ReportSelections."Report ID", '', ReportFormat::Pdf, EmailOutStream, PurchInvHeaderRef);
 
+            Recipients.Add(PurchasePayablesSetup."Invoice Email Recipients");
             BodyText := StrSubstNo('Purchase Invoice %1 for Vendor %2', PurchInvHeader."No.", PurchInvHeader."Pay-to Vendor No.");
-            SMTPMail.CreateMessage('', SMTPSetup."User ID", PurchasePayablesSetup."Invoice Email Recipients", StrSubstNo('Purchase Invoice %1', PurchInvHeader."No."), BodyText, true);
+            SMTPMail.CreateMessage('', SMTPSetup."User ID", Recipients, StrSubstNo('Purchase Invoice %1', PurchInvHeader."No."), BodyText);
             SMTPMail.AddAttachmentStream(EmailInStream, StrSubstNo('Purchase Invoice %1.pdf', PurchInvHeader."No."));
             SMTPMail.Send();
         end;

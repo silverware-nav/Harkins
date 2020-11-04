@@ -8,7 +8,7 @@ report 50100 "Harkins Purchase Invoice"
     {
         dataitem("Purch. Inv. Header"; "Purch. Inv. Header")
         {
-            DataItemTableView = SORTING ("No.");
+            DataItemTableView = SORTING("No.");
             PrintOnlyIfDetail = true;
             RequestFilterFields = "No.", "Buy-from Vendor No.", "Pay-to Vendor No.", "No. Printed";
             column(No_PurchInvHeader; "No.")
@@ -16,11 +16,11 @@ report 50100 "Harkins Purchase Invoice"
             }
             dataitem(CopyLoop; Integer)
             {
-                DataItemTableView = SORTING (Number);
+                DataItemTableView = SORTING(Number);
                 dataitem(PageLoop; Integer)
                 {
-                    DataItemTableView = SORTING (Number)
-                                        WHERE (Number = CONST (1));
+                    DataItemTableView = SORTING(Number)
+                                        WHERE(Number = CONST(1));
                     column(CompanyAddress1; CompanyAddress[1])
                     {
                     }
@@ -185,9 +185,9 @@ report 50100 "Harkins Purchase Invoice"
                     }
                     dataitem("Purch. Inv. Line"; "Purch. Inv. Line")
                     {
-                        DataItemLink = "Document No." = FIELD ("No.");
+                        DataItemLink = "Document No." = FIELD("No.");
                         DataItemLinkReference = "Purch. Inv. Header";
-                        DataItemTableView = SORTING ("Document No.", "Line No.");
+                        DataItemTableView = SORTING("Document No.", "Line No.");
                         column(AmountExclInvDisc; AmountExclInvDisc)
                         {
                         }
@@ -281,15 +281,15 @@ report 50100 "Harkins Purchase Invoice"
                         }
                         dataitem("Value Entry"; "Value Entry")
                         {
-                            DataItemLink = "Document No." = FIELD ("Document No."),
-                                           "Item No." = FIELD ("No.");
-                            DataItemTableView = SORTING ("Document No.")
-                                                WHERE ("Source Type" = CONST (Vendor),
-                                                      "Item Ledger Entry Type" = CONST (Purchase));
-                            column(ReceiptNo; ItemLedgerEntry."Document No.")
+                            DataItemLink = "Document No." = FIELD("Document No."),
+                                           "Item No." = FIELD("No.");
+                            DataItemTableView = SORTING("Document No.")
+                                                WHERE("Source Type" = CONST(Vendor),
+                                                      "Item Ledger Entry Type" = CONST(Purchase));
+                            column(ReceiptNo; "Value Entry"."Document No.")
                             {
                             }
-                            column(ReceiptDate; ItemLedgerEntry."Posting Date")
+                            column(ReceiptDate; "Value Entry"."Posting Date")
                             {
                             }
                             column(ReceiptText; ReceiptText)
@@ -298,8 +298,21 @@ report 50100 "Harkins Purchase Invoice"
 
                             trigger OnAfterGetRecord()
                             begin
-                                ItemLedgerEntry.GET("Item Ledger Entry No.");
-                                ReceiptText := STRSUBSTNO('Rcpt %1 on %2', ItemLedgerEntry."Document No.", ItemLedgerEntry."Posting Date");
+                                if LastReceiptDocument = "Value Entry"."Document No." then
+                                    CurrReport.Skip();
+                                if LastReceiptDocument <> '' then begin
+                                    AmountExclInvDisc := 0;
+                                    "Purch. Inv. Line"."Amount Including VAT" := 0;
+                                    "Purch. Inv. Line".Amount := 0;
+                                end;
+
+                                LastReceiptDocument := "Value Entry"."Document No.";
+                                ReceiptText := STRSUBSTNO('Rcpt %1 on %2', "Document No.", "Posting Date");
+                            end;
+
+                            trigger OnPreDataItem()
+                            begin
+                                LastReceiptDocument := '';
                             end;
                         }
 
@@ -371,7 +384,7 @@ report 50100 "Harkins Purchase Invoice"
                         CompanyInformation."Phone No." := RespCenter."Phone No.";
                         CompanyInformation."Fax No." := RespCenter."Fax No.";
                     END;
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
 
                 IF "Purchaser Code" = '' THEN
                     CLEAR(SalesPurchPerson)
@@ -544,15 +557,14 @@ report 50100 "Harkins Purchase Invoice"
         SalesPurchPerson: Record "Salesperson/Purchaser";
         CompanyInformation: Record "Company Information";
         RespCenter: Record "Responsibility Center";
-        Language: Record "Language";
         TempSalesTaxAmtLine: Record "Sales Tax Amount Line" temporary;
         TaxArea: Record "Tax Area";
         Vend: Record "Vendor";
         GLSetup: Record "General Ledger Setup";
-        ItemLedgerEntry: Record "Item Ledger Entry";
         CompanyAddress: array[8] of Text[100];
         BuyFromAddress: array[8] of Text[100];
         ShipToAddress: array[8] of Text[100];
+        LastReceiptDocument: Code[20]; //HAR001
         CopyTxt: Text[10];
         ItemNumberToPrint: Text[20];
         PrintCompany: Boolean;
@@ -564,6 +576,7 @@ report 50100 "Harkins Purchase Invoice"
         OnLineNumber: Integer;
         PurchaseInvPrinted: Codeunit "Purch. Inv.-Printed";
         FormatAddress: Codeunit "Format Address";
+        Language: Codeunit "Language";
         SalesTaxCalc: Codeunit "Sales Tax Calculate";
         SegManagement: Codeunit "SegManagement";
         LogInteraction: Boolean;
