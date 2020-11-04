@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="BCURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://api.businesscentral.dynamics.com/v1.0/61f26070-9979-4d9e-8d68-f47448cf48a8/ODataV4/Company('Harkins')/General_Ledger_Export</Value>
+      <Value Profile="(Default)">https://api.businesscentral.dynamics.com/v1.0/61f26070-9979-4d9e-8d68-f47448cf48a8/ODataV4/Company('Harkins')</Value>
     </Setting>
     <Setting Name="UserName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">KATHYCHANG</Value>
@@ -22,6 +22,18 @@
     </Setting>
     <Setting Name="PageFilter" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Document_No ne 'PPC*' and Document_No ne 'PPI*'</Value>
+    </Setting>
+    <Setting Name="AadTenantId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://businesscentral.dynamics.com/61f26070-9979-4d9e-8d68-f47448cf48a8</Value>
+    </Setting>
+    <Setting Name="ClientId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">d0b83312-6c1f-4b12-b0d1-bc123c1bfc57</Value>
+    </Setting>
+    <Setting Name="ClientRedirectUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://bcdownload.harkins.com</Value>
+    </Setting>
+    <Setting Name="ServerAppIdUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://api.businesscentral.dynamics.com</Value>
     </Setting>
   </Settings>
 </SettingsFile>

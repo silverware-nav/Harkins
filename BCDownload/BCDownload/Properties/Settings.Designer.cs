@@ -12,7 +12,7 @@ namespace BCDownload.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,7 +26,7 @@ namespace BCDownload.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://api.businesscentral.dynamics.com/v1.0/61f26070-9979-4d9e-8d68-f47448cf48a" +
-            "8/ODataV4/Company(\'Harkins\')/General_Ledger_Export")]
+            "8/ODataV4/Company(\'Harkins\')")]
         public string BCURL {
             get {
                 return ((string)(this["BCURL"]));
@@ -84,6 +84,42 @@ namespace BCDownload.Properties {
         public string PageFilter {
             get {
                 return ((string)(this["PageFilter"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://businesscentral.dynamics.com/61f26070-9979-4d9e-8d68-f47448cf48a8")]
+        public string AadTenantId {
+            get {
+                return ((string)(this["AadTenantId"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("d0b83312-6c1f-4b12-b0d1-bc123c1bfc57")]
+        public string ClientId {
+            get {
+                return ((string)(this["ClientId"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://bcdownload.harkins.com")]
+        public string ClientRedirectUrl {
+            get {
+                return ((string)(this["ClientRedirectUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.businesscentral.dynamics.com")]
+        public string ServerAppIdUri {
+            get {
+                return ((string)(this["ServerAppIdUri"]));
             }
         }
     }

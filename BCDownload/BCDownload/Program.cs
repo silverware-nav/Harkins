@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System.Runtime.InteropServices;
 
 namespace BCDownload
 {
@@ -15,6 +17,7 @@ namespace BCDownload
         static void Main(string[] args)
         {
             string SettingsFile;
+
 
             // Create the ProgramData folder if needed
             string ProgramDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
@@ -28,9 +31,22 @@ namespace BCDownload
             if (!File.Exists(SettingsFile))
                 File.WriteAllText(SettingsFile, "{\r\n  \"Entry_No\": 0\r\n}");
 
+            // Get the last entry number
+            JObject jSettings = new JObject();
+            jSettings = JObject.Load(JValue.Parse(File.ReadAllText(SettingsFile)).CreateReader());
+            int LastEntry = Convert.ToInt32(jSettings["Entry_No"]);
+
+            // Azure AD registrations:
+            // Specifies the Azure AD tenant ID
+            string AadTenantId = Properties.Settings.Default.AadTenantId;
+            // Specifies the Application (client) ID of the console application registration in Azure AD
+            string ClientId = Properties.Settings.Default.ClientId;
+            // Specifies the redirect URL for the client that was configured for console application registration in Azure AD
+            string ClientRedirectUrl = Properties.Settings.Default.ClientRedirectUrl;
+            // Specifies the APP ID URI that is configured for the registered Business Central application in Azure AD
+            string ServerAppIdUri = Properties.Settings.Default.ServerAppIdUri;
+
             string EndPoint = Properties.Settings.Default.BCURL;            
-            string UserName = Properties.Settings.Default.UserName;
-            string Password = Properties.Settings.Default.Password;
             string DestinationFolder = Properties.Settings.Default.DestinationFolder;
             string DestinationFile = Properties.Settings.Default.DestinationFile;
             string ArchiveFolder = Properties.Settings.Default.ArchiveFolder;
@@ -47,77 +63,46 @@ namespace BCDownload
                 File.Move(FullDestinationFile, ArchiveFileName);
             }
 
-            // Get the last entry number
-            JObject jSettings = new JObject();
-            jSettings = JObject.Load(JValue.Parse(File.ReadAllText(SettingsFile)).CreateReader());
-            int LastEntry = Convert.ToInt32(jSettings["Entry_No"]);
-
             // Create the output file
             StreamWriter fs = new StreamWriter(FullDestinationFile, false, Encoding.ASCII);
 
             // Read the data
             string Header = "\"Date\",\"Reference\",\"Account\",\"Debit\",\"Credit\"";
-            bool MoreData = true;
-            while (MoreData)
-            {
-                MoreData = false;
 
-                try
+            try
+            {                
+                AuthenticationResult authenticationResult;
+                AuthenticationContext authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/" + AadTenantId, new FileTokenCache(ProgramDataFolder + "\\BCDownload\\TokenCache.dat"));
+                if (authenticationContext.TokenCache.Count != 0)
+                    authenticationResult = authenticationContext.AcquireTokenAsync(ServerAppIdUri, ClientId, new Uri(ClientRedirectUrl), new PlatformParameters(PromptBehavior.Never)).GetAwaiter().GetResult();
+                else
+                    authenticationResult = authenticationContext.AcquireTokenAsync(ServerAppIdUri, ClientId, new Uri(ClientRedirectUrl), new PlatformParameters(PromptBehavior.SelectAccount)).GetAwaiter().GetResult();
+
+                // Connect to the Business Central OData web service
+                var nav = new NAV.NAV(new Uri(EndPoint));
+                nav.BuildingRequest += (sender, eventArgs) => eventArgs.Headers.Add("Authorization", authenticationResult.CreateAuthorizationHeader());
+
+                // Retrieve and return a list of the customers 
+                string filterString = String.Format("Entry_No%20gt%20{0}", LastEntry);
+                if (AdditionalFilter.Length > 0)
+                    filterString = string.Format("{0}%20and%20{1}", filterString, System.Web.HttpUtility.UrlPathEncode(AdditionalFilter));
+
+                Microsoft.OData.Client.DataServiceQuery<NAV.General_Ledger_Export> qx = nav.General_Ledger_Export.AddQueryOption("$filter", filterString);
+                foreach (NAV.General_Ledger_Export glExport in qx.GetAllPages())
                 {
-                    string urlString = String.Format("{0}?$filter=Entry_No%20gt%20{1}", EndPoint, LastEntry);
-                    if (AdditionalFilter.Length > 0)
-                        urlString = string.Format("{0}%20and%20{1}", urlString, System.Web.HttpUtility.UrlPathEncode(AdditionalFilter));
-                    Uri uri = new Uri(urlString);
-                    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
-                    request.Method = "GET";
-                    string Credentials = Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes(String.Format("{0}:{1}", UserName, Password)));
-                    request.Headers.Add("Authorization", "Basic " + Credentials);
-                    request.PreAuthenticate = true;                    
-
-                    request.Accept = "application/json";
-                    WebResponse response = request.GetResponse();
-                    StreamReader responseReader = new StreamReader(response.GetResponseStream());
-                    string responseString = responseReader.ReadToEnd();
-
-                    // Parse the data
-                    JObject jData = new JObject();
-                    jData = JObject.Load(JValue.Parse(responseString).CreateReader());
-
-                    JArray jArray = JArray.Parse(jData["value"].ToString());
-                    if (jArray.Count > 0)
+                    if (Header.Length > 0)
                     {
-                        if (Header.Length > 0)
-                        {
-                            fs.WriteLine(Header);
-                            Header = "";
-                        }
-
-                        MoreData = true;
-                        foreach (JObject jElement in jArray)
-                        {
-                            int EntryNo = Convert.ToInt32(jElement["Entry_No"]);
-                            if (EntryNo > LastEntry)
-                                LastEntry = EntryNo;
-
-                            fs.WriteLine(String.Format("\"{0}\",\"{1}\",\"{2}\",{3:########0.00},{4:########0.00}",
-                                jElement.GetValue("Posting_Date"),
-                                jElement.GetValue("Document_No"),
-                                jElement.GetValue("G_L_Account_No"),
-                                jElement.GetValue("Debit_Amount"),
-                                jElement.GetValue("Credit_Amount")
-                                ));
-                        }
+                        fs.WriteLine(Header);
+                        Header = "";
                     }
-                    
+                    fs.WriteLine(String.Format("\"{0}\",\"{1}\",\"{2}\",{3:########0.00},{4:########0.00}",
+                        glExport.Posting_Date, glExport.Document_No, glExport.G_L_Account_No, glExport.Debit_Amount, glExport.Credit_Amount));
+                    LastEntry = glExport.Entry_No;
                 }
-                catch (System.Net.WebException ex)
-                {
-                    Console.WriteLine("WebException Raised.  The following error occurred: {0}", ex.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("The following error occurred: {0}", ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The following error occurred: {0}", ex.Message);
             }
 
             fs.Close();
