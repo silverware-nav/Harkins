@@ -63,6 +63,7 @@ codeunit 50100 "SWC-HAR003Send Invoice"
         EmailOutStream: OutStream;
         EmailInStream: InStream;
         BodyText: Text;
+        Recipients: List of [Text];
     begin
         PurchasePayablesSetup.Get();
         ReportSelections.SetRange(Usage, ReportSelections.Usage::"P.Cr.Memo");
@@ -77,8 +78,9 @@ codeunit 50100 "SWC-HAR003Send Invoice"
             PurchCrMemoHeaderRef.SetRecFilter();
             Report.SaveAs(ReportSelections."Report ID", '', ReportFormat::Pdf, EmailOutStream, PurchCrMemoHeaderRef);
 
+            Recipients.Add(PurchasePayablesSetup."Invoice Email Recipients");
             BodyText := StrSubstNo('Purchase Credit Memo %1 for Vendor %2', CreditMemoHeader."No.", CreditMemoHeader."Pay-to Vendor No.");
-            SMTPMail.CreateMessage('', SMTPSetup."User ID", PurchasePayablesSetup."Invoice Email Recipients", StrSubstNo('Purchase Credit Memo %1', CreditMemoHeader."No."), BodyText, true);
+            SMTPMail.CreateMessage('', SMTPSetup."User ID", Recipients, StrSubstNo('Purchase Credit Memo %1', CreditMemoHeader."No."), BodyText);
             SMTPMail.AddAttachmentStream(EmailInStream, StrSubstNo('Purchase Invoice %1.pdf', CreditMemoHeader."No."));
             SMTPMail.Send();
         end;
